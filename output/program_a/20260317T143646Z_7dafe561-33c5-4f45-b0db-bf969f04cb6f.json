@@ -1,0 +1,74 @@
+{
+  "hook_version": 1,
+  "event_id": "7dafe561-33c5-4f45-b0db-bf969f04cb6f",
+  "stage": "pre_solver_constraints",
+  "source": {
+    "p4_path": "/home/gosh/P4LTL/LLM-P4LTL/upstream/Artifact/benchmark/Temporal Verification/Case Study/P4NIS/main.p4",
+    "p4ltl_path": "/home/gosh/P4LTL/LLM-P4LTL/upstream/Artifact/benchmark/Temporal Verification/Case Study/P4NIS/9.p4ltl",
+    "p4_exists": true,
+    "p4ltl_exists": true
+  },
+  "raw_sections": {
+    "ltl_variables": [],
+    "ltl_property": [
+      {
+        "line": 1,
+        "content": "[](<>(AP(standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr) != 0xffffffffffff && old(hdr.ipv4.dstAddr) != 0x7b7b7b7b && old(hdr.ethernet.srcAddr) != 0x0 && fwd(1)))) && [](<>(AP(standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr) != 0xffffffffffff && old(hdr.ipv4.dstAddr) != 0x7b7b7b7b && old(hdr.ethernet.srcAddr) != 0x0 && fwd(2)))) && [](<>(AP(standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr) != 0xffffffffffff && old(hdr.ipv4.dstAddr) != 0x7b7b7b7b && old(hdr.ethernet.srcAddr) != 0x0 && fwd(3))))"
+      }
+    ],
+    "ltl_fairness": [
+      {
+        "line": 2,
+        "content": "[](<>(AP(standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr) != 0xffffffffffff && old(hdr.ipv4.dstAddr) != 0x7b7b7b7b && old(hdr.ethernet.srcAddr) != 0x0)))"
+      }
+    ],
+    "cpi": [],
+    "cpi_model": [],
+    "cpi_spec": [],
+    "cpi_simp": [],
+    "register_write": []
+  },
+  "packet_constraints": [
+    {
+      "source": "ltl_property",
+      "line": 1,
+      "expression": "standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr",
+      "fields": [
+        "old(hdr.ethernet.dstAddr",
+        "standard_metadata.ingress_port"
+      ]
+    },
+    {
+      "source": "ltl_property",
+      "line": 1,
+      "expression": "standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr",
+      "fields": [
+        "old(hdr.ethernet.dstAddr",
+        "standard_metadata.ingress_port"
+      ]
+    },
+    {
+      "source": "ltl_property",
+      "line": 1,
+      "expression": "standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr",
+      "fields": [
+        "old(hdr.ethernet.dstAddr",
+        "standard_metadata.ingress_port"
+      ]
+    },
+    {
+      "source": "ltl_fairness",
+      "line": 2,
+      "expression": "standard_metadata.ingress_port == 0 && old(hdr.ethernet.dstAddr",
+      "fields": [
+        "old(hdr.ethernet.dstAddr",
+        "standard_metadata.ingress_port"
+      ]
+    }
+  ],
+  "environment_constraints": [],
+  "notes": [
+    "This is a first hook prototype that exports raw P4LTL sections and a conservative packet/environment split.",
+    "It does not yet hook into BuchiAutomizer or SMT-level model extraction."
+  ]
+}

@@ -1,0 +1,1469 @@
+{
+  "hook_version": 1,
+  "event_id": "cc59841f-96ac-44ad-95f0-21525e132c86",
+  "stage": "pre_validator_constraints_from_bpl",
+  "source": {
+    "p4_path": "/home/gosh/P4LTL/LLM-P4LTL/samples/P4NIS/main.p4",
+    "p4ltl_path": "/home/gosh/P4LTL/LLM-P4LTL/samples/P4NIS/9.p4ltl",
+    "bpl_path": "/home/gosh/P4LTL/P4LTL-Validator/releaseScripts/default/UP4LTL-linux/UP4LTL-linux/p4ltl_boogie.bpl"
+  },
+  "packet_constraints": [
+    {
+      "source": "normalized_ltl_header",
+      "line": 1,
+      "expression": "//#LTLProperty: ((!(([]((<>(AP(((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0))))))))) || ((([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(1))))))) && ([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(2)))))))) && ([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(3)))))))))"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 15,
+      "declaration": "var standard_metadata.ingress_port:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 16,
+      "declaration": "var standard_metadata.egress_spec:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 17,
+      "declaration": "var standard_metadata.egress_port:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 18,
+      "declaration": "var standard_metadata.instance_type:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 19,
+      "declaration": "var standard_metadata.packet_length:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 20,
+      "declaration": "var standard_metadata.enq_timestamp:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 21,
+      "declaration": "var standard_metadata.enq_qdepth:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 22,
+      "declaration": "var standard_metadata.deq_timedelta:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 23,
+      "declaration": "var standard_metadata.deq_qdepth:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 24,
+      "declaration": "var standard_metadata.ingress_global_timestamp:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 25,
+      "declaration": "var standard_metadata.egress_global_timestamp:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 26,
+      "declaration": "var standard_metadata.mcast_grp:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 27,
+      "declaration": "var standard_metadata.egress_rid:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 28,
+      "declaration": "var standard_metadata.checksum_error:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 29,
+      "declaration": "var standard_metadata.parser_error:error;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 30,
+      "declaration": "var standard_metadata.priority:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 60,
+      "declaration": "var hdr.ethernet:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 61,
+      "declaration": "var hdr.ethernet.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 62,
+      "declaration": "var hdr.ethernet.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 63,
+      "declaration": "var hdr.ethernet.dstAddr:macAddr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 64,
+      "declaration": "var _old_hdr.ethernet.dstAddr: int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 65,
+      "declaration": "var hdr.ethernet.srcAddr:macAddr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 66,
+      "declaration": "var _old_hdr.ethernet.srcAddr: int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 67,
+      "declaration": "var hdr.ethernet.etherType:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 70,
+      "declaration": "var hdr.ipv6:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 71,
+      "declaration": "var hdr.ipv6.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 72,
+      "declaration": "var hdr.ipv6.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 73,
+      "declaration": "var hdr.ipv6.version:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 74,
+      "declaration": "var hdr.ipv6.trafclass:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 75,
+      "declaration": "var hdr.ipv6.flowlabel:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 76,
+      "declaration": "var hdr.ipv6.payloadlen:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 77,
+      "declaration": "var hdr.ipv6.nextheader:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 78,
+      "declaration": "var hdr.ipv6.hoplimit:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 79,
+      "declaration": "var hdr.ipv6.srcAddr:ip6Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 80,
+      "declaration": "var hdr.ipv6.dstAddr:ip6Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 83,
+      "declaration": "var hdr.ipv4_tunnel:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 84,
+      "declaration": "var hdr.ipv4_tunnel.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 85,
+      "declaration": "var hdr.ipv4_tunnel.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 86,
+      "declaration": "var hdr.ipv4_tunnel.version:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 87,
+      "declaration": "var hdr.ipv4_tunnel.ihl:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 88,
+      "declaration": "var hdr.ipv4_tunnel.diffserv:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 89,
+      "declaration": "var hdr.ipv4_tunnel.totalLen:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 90,
+      "declaration": "var hdr.ipv4_tunnel.identification:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 91,
+      "declaration": "var hdr.ipv4_tunnel.flags:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 92,
+      "declaration": "var hdr.ipv4_tunnel.fragOffset:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 93,
+      "declaration": "var hdr.ipv4_tunnel.ttl:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 94,
+      "declaration": "var hdr.ipv4_tunnel.protocol:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 95,
+      "declaration": "var hdr.ipv4_tunnel.hdrChecksum:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 96,
+      "declaration": "var hdr.ipv4_tunnel.srcAddr:ip4Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 97,
+      "declaration": "var hdr.ipv4_tunnel.dstAddr:ip4Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 100,
+      "declaration": "var hdr.ipv4:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 101,
+      "declaration": "var hdr.ipv4.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 102,
+      "declaration": "var hdr.ipv4.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 103,
+      "declaration": "var hdr.ipv4.version:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 104,
+      "declaration": "var hdr.ipv4.ihl:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 105,
+      "declaration": "var hdr.ipv4.diffserv:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 106,
+      "declaration": "var hdr.ipv4.totalLen:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 107,
+      "declaration": "var hdr.ipv4.identification:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 108,
+      "declaration": "var hdr.ipv4.flags:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 109,
+      "declaration": "var hdr.ipv4.fragOffset:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 110,
+      "declaration": "var hdr.ipv4.ttl:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 111,
+      "declaration": "var hdr.ipv4.protocol:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 112,
+      "declaration": "var hdr.ipv4.hdrChecksum:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 113,
+      "declaration": "var hdr.ipv4.srcAddr:ip4Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 114,
+      "declaration": "var hdr.ipv4.dstAddr:ip4Addr_t;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 115,
+      "declaration": "var _old_hdr.ipv4.dstAddr: int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 118,
+      "declaration": "var hdr.tcp:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 119,
+      "declaration": "var hdr.tcp.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 120,
+      "declaration": "var hdr.tcp.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 121,
+      "declaration": "var hdr.tcp.srcport:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 122,
+      "declaration": "var hdr.tcp.dstport:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 123,
+      "declaration": "var hdr.tcp.sequence:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 124,
+      "declaration": "var hdr.tcp.ackseq:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 125,
+      "declaration": "var hdr.tcp.headerlength:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 126,
+      "declaration": "var hdr.tcp.reservation:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 127,
+      "declaration": "var hdr.tcp.URG:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 128,
+      "declaration": "var hdr.tcp.ACK:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 129,
+      "declaration": "var hdr.tcp.PSH:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 130,
+      "declaration": "var hdr.tcp.RST:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 131,
+      "declaration": "var hdr.tcp.SYN:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 132,
+      "declaration": "var hdr.tcp.FIN:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 133,
+      "declaration": "var hdr.tcp.windowsize:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 134,
+      "declaration": "var hdr.tcp.checksum:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 135,
+      "declaration": "var hdr.tcp.pointer:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 138,
+      "declaration": "var hdr.udp_tunnel:Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 139,
+      "declaration": "var hdr.udp_tunnel.valid:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 140,
+      "declaration": "var hdr.udp_tunnel.emit:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 141,
+      "declaration": "var hdr.udp_tunnel.srcport:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 142,
+      "declaration": "var hdr.udp_tunnel.dstport:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 143,
+      "declaration": "var hdr.udp_tunnel.userlength:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 144,
+      "declaration": "var hdr.udp_tunnel.checksum:int;"
+    }
+  ],
+  "environment_constraints": [
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "drop := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "forward := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assertDummy := true;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.ingress_port;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.ingress_port && standard_metadata.ingress_port < power_2_9() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.egress_spec := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.egress_port := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.instance_type;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.instance_type && standard_metadata.instance_type < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.packet_length;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.packet_length && standard_metadata.packet_length < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.enq_timestamp;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.enq_timestamp && standard_metadata.enq_timestamp < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.enq_qdepth := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.deq_timedelta;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.deq_timedelta && standard_metadata.deq_timedelta < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.deq_qdepth;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.deq_qdepth && standard_metadata.deq_qdepth < power_2_19() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.ingress_global_timestamp;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.ingress_global_timestamp && standard_metadata.ingress_global_timestamp < power_2_48() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc standard_metadata.egress_global_timestamp;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= standard_metadata.egress_global_timestamp && standard_metadata.egress_global_timestamp < power_2_48() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.mcast_grp := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.egress_rid := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.checksum_error := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.parser_error := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "standard_metadata.priority := 0;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ethernet.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ethernet.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ethernet.dstAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ethernet.srcAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ethernet.etherType;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ethernet.etherType && hdr.ethernet.etherType < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv6.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv6.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.version;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.version && hdr.ipv6.version < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.trafclass;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.trafclass && hdr.ipv6.trafclass < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.flowlabel;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.flowlabel && hdr.ipv6.flowlabel < power_2_20() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.payloadlen;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.payloadlen && hdr.ipv6.payloadlen < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.nextheader;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.nextheader && hdr.ipv6.nextheader < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.hoplimit;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv6.hoplimit && hdr.ipv6.hoplimit < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.srcAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv6.dstAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv4_tunnel.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv4_tunnel.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.version;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.version && hdr.ipv4_tunnel.version < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.ihl;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.ihl && hdr.ipv4_tunnel.ihl < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.diffserv;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.diffserv && hdr.ipv4_tunnel.diffserv < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.totalLen;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.totalLen && hdr.ipv4_tunnel.totalLen < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.identification;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.identification && hdr.ipv4_tunnel.identification < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.flags;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.flags && hdr.ipv4_tunnel.flags < power_2_3() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.fragOffset;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.fragOffset && hdr.ipv4_tunnel.fragOffset < power_2_13() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.ttl;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.ttl && hdr.ipv4_tunnel.ttl < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.protocol;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.protocol && hdr.ipv4_tunnel.protocol < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.hdrChecksum;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4_tunnel.hdrChecksum && hdr.ipv4_tunnel.hdrChecksum < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.srcAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4_tunnel.dstAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv4.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.ipv4.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.version;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.version && hdr.ipv4.version < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.ihl;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.ihl && hdr.ipv4.ihl < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.diffserv;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.diffserv && hdr.ipv4.diffserv < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.totalLen;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.totalLen && hdr.ipv4.totalLen < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.identification;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.identification && hdr.ipv4.identification < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.flags;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.flags && hdr.ipv4.flags < power_2_3() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.fragOffset;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.fragOffset && hdr.ipv4.fragOffset < power_2_13() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.ttl;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.ttl && hdr.ipv4.ttl < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.protocol;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.protocol && hdr.ipv4.protocol < power_2_8() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.hdrChecksum;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.ipv4.hdrChecksum && hdr.ipv4.hdrChecksum < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.srcAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.ipv4.dstAddr;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.tcp.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.tcp.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.srcport;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.srcport && hdr.tcp.srcport < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.dstport;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.dstport && hdr.tcp.dstport < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.sequence;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.sequence && hdr.tcp.sequence < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.ackseq;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.ackseq && hdr.tcp.ackseq < power_2_32() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.headerlength;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.headerlength && hdr.tcp.headerlength < power_2_4() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.reservation;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.reservation && hdr.tcp.reservation < power_2_6() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.URG;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.URG && hdr.tcp.URG < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.ACK;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.ACK && hdr.tcp.ACK < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.PSH;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.PSH && hdr.tcp.PSH < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.RST;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.RST && hdr.tcp.RST < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.SYN;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.SYN && hdr.tcp.SYN < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.FIN;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.FIN && hdr.tcp.FIN < power_2_1() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.windowsize;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.windowsize && hdr.tcp.windowsize < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.checksum;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.checksum && hdr.tcp.checksum < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.tcp.pointer;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.tcp.pointer && hdr.tcp.pointer < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.udp_tunnel.valid := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "hdr.udp_tunnel.emit := false;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.udp_tunnel.srcport;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.udp_tunnel.srcport && hdr.udp_tunnel.srcport < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.udp_tunnel.dstport;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.udp_tunnel.dstport && hdr.udp_tunnel.dstport < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.udp_tunnel.userlength;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.udp_tunnel.userlength && hdr.udp_tunnel.userlength < power_2_16() );"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "havoc hdr.udp_tunnel.checksum;"
+    },
+    {
+      "source": "havocProcedure",
+      "procedure": "havocProcedure",
+      "statement": "assume(0 <= hdr.udp_tunnel.checksum && hdr.udp_tunnel.checksum < power_2_16() );"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.dstAddr := hdr.ethernet.dstAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.dstAddr := hdr.ethernet.dstAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.dstAddr := hdr.ethernet.dstAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.srcAddr := hdr.ethernet.srcAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.srcAddr := hdr.ethernet.srcAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ethernet.srcAddr := hdr.ethernet.srcAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ipv4.dstAddr := hdr.ipv4.dstAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ipv4.dstAddr := hdr.ipv4.dstAddr;"
+    },
+    {
+      "source": "oldProcedure",
+      "procedure": "oldProcedure",
+      "statement": "_old_hdr.ipv4.dstAddr := hdr.ipv4.dstAddr;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 6,
+      "declaration": "var last:[HeaderStack]Ref;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 7,
+      "declaration": "var forward:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 8,
+      "declaration": "var isValid:[Ref]bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 9,
+      "declaration": "var stack.index:[HeaderStack]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 10,
+      "declaration": "var size:[HeaderStack]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 11,
+      "declaration": "var drop:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 12,
+      "declaration": "var assertDummy:bool;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 33,
+      "declaration": "var count:[int]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 34,
+      "declaration": "const count.size:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 38,
+      "declaration": "var es_box:[int]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 39,
+      "declaration": "const es_box.size:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 43,
+      "declaration": "var ds_box:[int]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 44,
+      "declaration": "const ds_box.size:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 48,
+      "declaration": "var user_mac:[int]int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 49,
+      "declaration": "const user_mac.size:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 145,
+      "declaration": "var temp_0:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 146,
+      "declaration": "var temp4Assert_0:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 147,
+      "declaration": "var tmp:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 148,
+      "declaration": "var tmp_0:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 149,
+      "declaration": "var tmp_1:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 150,
+      "declaration": "var tmp_2:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 151,
+      "declaration": "var tmp_3:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 152,
+      "declaration": "var tmp_4:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 153,
+      "declaration": "var tmp_5:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 154,
+      "declaration": "var tmp_6:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 155,
+      "declaration": "var tmp_7:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 156,
+      "declaration": "var tmp_8:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 157,
+      "declaration": "var tmp_9:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 158,
+      "declaration": "var tmp_10:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 159,
+      "declaration": "var tmp_11:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 160,
+      "declaration": "var tmp_12:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 161,
+      "declaration": "var tmp_13:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 162,
+      "declaration": "var tmp_14:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 164,
+      "declaration": "var tmp_15:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 165,
+      "declaration": "var tmp_16:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 166,
+      "declaration": "var tmp_17:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 167,
+      "declaration": "var tmp_18:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 168,
+      "declaration": "var tmp_19:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 169,
+      "declaration": "var tmp_20:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 170,
+      "declaration": "var tmp_21:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 171,
+      "declaration": "var tmp_22:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 172,
+      "declaration": "var tmp_23:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 173,
+      "declaration": "var tmp_24:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 174,
+      "declaration": "var tmp_25:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 175,
+      "declaration": "var tmp_26:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 176,
+      "declaration": "var tmp_27:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 177,
+      "declaration": "var tmp_28:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 178,
+      "declaration": "var tmp_29:int;"
+    },
+    {
+      "source": "boogie_variable",
+      "line": 179,
+      "declaration": "var tmp_30:int;"
+    }
+  ],
+  "raw_ltl_headers": [
+    {
+      "line": 1,
+      "content": "//#LTLProperty: ((!(([]((<>(AP(((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0))))))))) || ((([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(1))))))) && ([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(2)))))))) && ([]((<>(AP((((((standard_metadata.ingress_port == 0) && (_old_hdr.ethernet.dstAddr != 281474976710655)) && (_old_hdr.ipv4.dstAddr != 2071690107)) && (_old_hdr.ethernet.srcAddr != 0)) && fwd(3)))))))))"
+    }
+  ],
+  "notes": [
+    "This hook runs after translator and before validator.",
+    "It extracts constraints from the generated Boogie program rather than from the original P4LTL text."
+  ]
+}
